@@ -6,6 +6,12 @@
   "main": "index.js",
   "author": "Mike Cunneen",
   "private": "false",
+  "bin": "dist/cli.cjs",
+  "types": "dist/index.d.cts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cunneen/ssl-certificate-chain.git"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -14,17 +20,32 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@dotenvx/dotenvx": "^1.48.4",
+    "@microsoft/api-extractor": "^7.52.10",
     "chai": "^5.2.1",
     "git-cliff": "^2.10.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.1",
-    "release-it": "^19.0.4"
+    "release-it": "^19.0.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
   },
   "scripts": {
     "test": "dotenvx run -- ./node_modules/.bin/mocha",
+    "start": "npm run watch",
     "prepare": "husky",
     "commitlint": "commitlint --edit",
     "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
-    "release": "dotenvx run release-it -- -i -u"
+    "build": "dotenvx run tsup -- --experimental-dts --publicDir",
+    "prerelease": "npm run build",
+    "release": "dotenvx run release-it -- -i ",
+    "watch": "dotenvx run tsup -- --experimental-dts --publicDir --watch --onSuccess 'dist/cli.cjs'"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true
   }
 }
