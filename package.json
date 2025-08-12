@@ -1,21 +1,11 @@
 {
-  "name": "ssl-certificate-chain",
-  "description": "A nodejs module for downloading a SSL certificate chain from a website",
-  "version": "0.0.1",
-  "type": "module",
-  "main": "index.js",
   "author": "Mike Cunneen",
-  "private": "false",
   "bin": "dist/cli.cjs",
-  "types": "dist/index.d.cts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cunneen/ssl-certificate-chain.git"
+  "dependencies": {
+    "get-ssl-certificate": "^2.3.3",
+    "minimist": "^1.2.8"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
+  "description": "A nodejs module for downloading a SSL certificate chain from a website",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -29,23 +19,37 @@
     "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "ssl-certificate-chain",
+  "private": "false",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cunneen/ssl-certificate-chain.git"
+  },
   "scripts": {
-    "test": "dotenvx run -- ./node_modules/.bin/mocha",
-    "start": "npm run watch",
-    "prepare": "husky",
-    "commitlint": "commitlint --edit",
-    "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
     "build": "dotenvx run tsup -- --experimental-dts --publicDir",
+    "commitlint": "commitlint --edit",
+    "prepare": "husky",
     "prerelease": "npm run build",
     "release": "dotenvx run release-it -- -i ",
+    "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
+    "start": "npm run watch",
+    "test": "dotenvx run -- ./node_modules/.bin/mocha",
     "watch": "dotenvx run tsup -- --experimental-dts --publicDir --watch --onSuccess 'dist/cli.cjs'"
   },
   "tsup": {
+    "clean": true,
     "entry": [
       "src/index.ts"
     ],
-    "splitting": false,
     "sourcemap": true,
-    "clean": true
-  }
+    "splitting": false
+  },
+  "type": "module",
+  "types": "dist/index.d.cts",
+  "version": "0.0.1"
 }
