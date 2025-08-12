@@ -1,0 +1,30 @@
+{
+  "name": "ssl-certificate-chain",
+  "description": "A nodejs module for downloading a SSL certificate chain from a website",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "author": "Mike Cunneen",
+  "private": "false",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@dotenvx/dotenvx": "^1.48.4",
+    "chai": "^5.2.1",
+    "git-cliff": "^2.10.0",
+    "husky": "^9.1.7",
+    "mocha": "^11.7.1",
+    "release-it": "^19.0.4"
+  },
+  "scripts": {
+    "test": "dotenvx run -- ./node_modules/.bin/mocha",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit",
+    "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
+    "release": "dotenvx run release-it -- -i -u"
+  }
+}
