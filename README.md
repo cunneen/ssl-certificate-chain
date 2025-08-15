@@ -23,7 +23,7 @@
 <h3 align="center">ssl-certificate-chain</h3>
 
   <p align="center">
-    A nodejs module for downloading a SSL certificate chain from a website
+    Downloads the SSL certificate from an HTTPS website, obtains each certificate in the certificate chain, and writes the chain as a PEM file.
     <br />
     <a href="https://github.com/cunneen/ssl-certificate-chain"><strong>Explore the docs »</strong></a>
     <br />
@@ -77,8 +77,29 @@ npx ssl-certificate-chain <url>
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+### Command-Line usage
+
 ```sh
- npx ssl-certificate-chain <url> [-p port] [-o outputFile]
+npx ssl-certificate-chain <url> [-p port] [-o outputFile] [-d outputDir] [-s skipWebsiteCert]
+
+```
+
+Where:
+
+* `<url>`: The URL to fetch the certificate chain from
+* `[-p port]`: The port to connect to (default: `443`)
+* `[-o outputFile]`: The output file to write the certificate chain to (default: `chain.pem`)
+* `[-d outputDir]`: The output folder to write the certificate chain to (default: `${CWD}/output/`)
+* `[-s skipWebsiteCert]`: Skip outputting the SSL certificate obtained from the URL specified by \<url> (default: `false`)
+
+### API Usage
+
+```js
+import { sslCertificateChain } from "ssl-certificate-chain";
+
+await sslCertificateChain({ url, port, outputFile, skipWebsiteCert, outputDir });
+
+See [command-line usage](#command-line-usage) for details
 ```
 
 ### Example
@@ -91,19 +112,20 @@ npx ssl-certificate-chain https://example.com -o example.com.pem
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ROADMAP 
+<!-- ROADMAP -->
 ## Roadmap
 
+<!--
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
     - [ ] Nested Feature
 
+-->
+
 See the [open issues](https://github.com/cunneen/ssl-certificate-chain/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
--->
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -147,6 +169,11 @@ Project Link: [https://github.com/cunneen/ssl-certificate-chain](https://github.
 ## Acknowledgments
 
 * [get-ssl-certificate](https://github.com/johncrisostomo/get-ssl-certificate)
+* [cheerio](https://github.com/cheeriojs/cheerio)
+* [minimist](https://github.com/substack/minimist)
+* [anylogger](https://github.com/Downloads/anylogger)
+* [Best README Template](https://github.com/othneildrew/Best-README-Template)
+* [chilkat software](https://www.chilkatsoft.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

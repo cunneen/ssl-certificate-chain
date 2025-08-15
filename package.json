@@ -2,6 +2,11 @@
   "author": "Mike Cunneen",
   "bin": "dist/cli.cjs",
   "dependencies": {
+    "anylogger": "^1.0.11",
+    "anylogger-debug": "^1.0.3",
+    "cheerio": "^1.1.2",
+    "ck-node24-wrapper": "^1.0.1",
+    "debug": "^4.4.1",
     "get-ssl-certificate": "^2.3.3",
     "minimist": "^1.2.8"
   },
@@ -11,13 +16,22 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@dotenvx/dotenvx": "^1.48.4",
     "@microsoft/api-extractor": "^7.52.10",
+    "@types/chai": "^5.2.2",
+    "@types/debug": "^4.1.12",
+    "@types/get-ssl-certificate": "^2.3.3",
+    "@types/minimist": "^1.2.5",
+    "@types/mocha": "^10.0.10",
     "chai": "^5.2.1",
     "git-cliff": "^2.10.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.1",
     "release-it": "^19.0.4",
     "tsup": "^8.5.0",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "license": "MIT",
   "main": "index.js",
@@ -31,20 +45,21 @@
     "url": "https://github.com/cunneen/ssl-certificate-chain.git"
   },
   "scripts": {
-    "build": "dotenvx run tsup -- --experimental-dts --publicDir",
+    "build": "dotenvx run tsup -- --format esm --experimental-dts --publicDir",
     "commitlint": "commitlint --edit",
-    "prepare": "husky",
+    "prepare": "husky; ck-install",
     "prerelease": "npm run build",
     "release": "dotenvx run release-it -- -i ",
     "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
     "start": "npm run watch",
-    "test": "dotenvx run -- ./node_modules/.bin/mocha",
-    "watch": "dotenvx run tsup -- --experimental-dts --publicDir --watch --onSuccess 'dist/cli.cjs'"
+    "test": "dotenvx run -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",
+    "test-debug": "dotenvx run -e DEBUG='*' -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",
+    "watch": "dotenvx run tsup -- --format esm --experimental-dts --publicDir --watch --onSuccess 'dist/cli.js extranet.tcwa.com.au -p 443 -s true'"
   },
   "tsup": {
     "clean": true,
     "entry": [
-      "src/index.ts"
+      "src/**/*.ts"
     ],
     "sourcemap": true,
     "splitting": false

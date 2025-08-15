@@ -1,5 +1,2 @@
-
-
-export default function sslCertificateChain() {
-  console.log("Typescript running");
-}
+import { sslCertificateChain } from "./sslCertificateChain";
+export { sslCertificateChain };

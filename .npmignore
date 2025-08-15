@@ -197,3 +197,22 @@ Temporary Items
 
 # output folder
 /output/
+
+# ===== Above is a copy of .gitignore ; below are overrides for NPM ignore
+
+!/dist/
+/.env*
+/.vscode
+/.husky
+/.tsup
+/node_modules
+/src
+/test
+/.gitignore
+/.mocharc.json
+/.npmignore
+/.nvmrc
+/.release-it.json
+/CHANGELOG.md
+/cliff.toml
+/tsconfig.json
