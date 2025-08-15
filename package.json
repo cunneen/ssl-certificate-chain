@@ -1,6 +1,6 @@
 {
   "author": "Mike Cunneen",
-  "bin": "dist/cli.cjs",
+  "bin": "dist/cli.js",
   "dependencies": {
     "anylogger": "^1.0.11",
     "anylogger-debug": "^1.0.3",
