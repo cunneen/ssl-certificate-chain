@@ -36,7 +36,6 @@
   "license": "MIT",
   "main": "index.js",
   "name": "ssl-certificate-chain",
-  "private": "false",
   "publishConfig": {
     "access": "public"
   },
