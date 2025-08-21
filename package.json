@@ -50,6 +50,7 @@
     "prerelease": "npm run build",
     "release": "dotenvx run release-it -- -i ",
     "release-changelog": "git-cliff --unreleased --prepend CHANGELOG.md --tag ",
+    "setup-example": "./dist/cli.js https://mt.com -s -o chain.pem",
     "start": "npm run watch",
     "test": "dotenvx run -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",
     "test-debug": "dotenvx run -e DEBUG='*' -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",

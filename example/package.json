@@ -1,0 +1,16 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "=14"
+  },
+  "main": "check.js",
+  "scripts": {
+    "error": "node ./check.js",
+    "working": "NODE_EXTRA_CA_CERTS=../output/chain.pem node ./check.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
