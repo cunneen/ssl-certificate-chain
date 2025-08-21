@@ -78,9 +78,11 @@ This tool was a simple attempt to build the PEM file necessary to get Nodejs to 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-You can run the application using `npx` (NB: requires nodejs):
+(NB: requires nodejs):
 
 ```sh
+mkdir temp && cd temp
+npm init -y && npm i ck-node24-wrapper ssl-certificate-chain && ./node_modules/.bin/ck-install   
 npx ssl-certificate-chain <url>
 ```
 
