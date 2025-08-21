@@ -8,7 +8,8 @@
     "ck-node24-wrapper": "^1.0.1",
     "debug": "^4.4.1",
     "get-ssl-certificate": "^2.3.3",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "prepare": "ck-install"
   },
   "description": "A nodejs module for downloading a SSL certificate chain from a website",
   "devDependencies": {
