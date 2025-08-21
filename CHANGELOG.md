@@ -1,3 +1,8 @@
+## [1.0.3] - 2025-08-21
+
+### 📚 Documentation
+
+- 📝  README: workaround @chilkat install issues
 ## [1.0.2] - 2025-08-21
 
 ### 🐛 Bug Fixes
