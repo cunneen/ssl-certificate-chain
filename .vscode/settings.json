@@ -7,5 +7,6 @@
         "tsup.config.json"
       ]
     }
-  ]
+  ],
+  "gitflow.disableOnRepo": true
 }
