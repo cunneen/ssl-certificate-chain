@@ -53,7 +53,7 @@
     "start": "npm run watch",
     "test": "dotenvx run -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",
     "test-debug": "dotenvx run -e DEBUG='*' -- ./node_modules/.bin/mocha  --recursive --import=tsx --require test/globalSetup.mocha.ts",
-    "watch": "dotenvx run tsup -- --format esm --experimental-dts --publicDir --watch --onSuccess 'dist/cli.js extranet.tcwa.com.au -p 443 -s true'"
+    "watch": "dotenvx run tsup -- --format esm --experimental-dts --publicDir --watch --onSuccess 'dist/cli.js mt.com -p 443 -s true'"
   },
   "tsup": {
     "clean": true,

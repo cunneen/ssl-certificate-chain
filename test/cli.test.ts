@@ -10,7 +10,7 @@ describe('CLI', function () {
   this.timeout(10000);
   it('should execute the CLI with default options', async () => {
     const cliPath = path.join(__dirname, '..', 'dist', 'cli.js');
-    const args = ['https://example.com'];
+    const args = ['https://mt.com'];
     const options: SpawnOptions = { stdio: 'inherit' };
 
     const childProcess = spawn(cliPath, args, options);
@@ -31,7 +31,7 @@ describe('CLI', function () {
 
   it('should execute the CLI with custom options', async () => {
     const cliPath = path.join(__dirname, '..', 'dist', 'cli.js');
-    const args = ['https://example.com', '-p', '443', '-o', 'example.com.pem'];
+    const args = ['https://mt.com', '-p', '443', '-o', 'mt.com.pem'];
     // const options: SpawnOptions = { stdio: 'inherit', env: { ...(process.env), DEBUG: "*" } };
     const options: SpawnOptions = { stdio: 'inherit' };
 
@@ -41,7 +41,7 @@ describe('CLI', function () {
       childProcess.on('close', (code) => {
         if (code === 0) {
           const outputDir = path.resolve(path.join((process.cwd()), 'output'));
-          const outputFile = path.resolve(path.join(outputDir, 'example.com.pem'));
+          const outputFile = path.resolve(path.join(outputDir, 'mt.com.pem'));
           expect(fs.existsSync(outputFile)).to.be.true;
           resolve();
         } else {
