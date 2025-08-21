@@ -1,3 +1,9 @@
+## [1.0.2] - 2025-08-21
+
+### 🐛 Bug Fixes
+
+- :bug: attempt to fix "Cannot find module" with chilkat libs
+- :arrow_up: ck-node24-wrapper => 1.0.3
 ## [1.0.1] - 2025-08-21
 
 ### 🐛 Bug Fixes
