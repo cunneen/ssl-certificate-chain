@@ -1,3 +1,23 @@
+## [1.0.1] - 2025-08-21
+
+### 🐛 Bug Fixes
+
+- :wrench: package.json : remove private: field
+- :wrench: package.json : fix path to "bin"
+
+### 📚 Documentation
+
+- :memo: add example
+- :memo: improve README
+
+### 🧪 Testing
+
+- :memo: use mt.com instead of example.com for examples
+
+### ⚙️ Miscellaneous Tasks
+
+- :see_no_evil: gitignore example/output/
+- :hammer: vscode: disable gitflow
 ## [1.0.0] - 2025-08-15
 
 ### 🚀 Features
